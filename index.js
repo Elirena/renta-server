@@ -1,0 +1,28 @@
+'use strict';
+
+require(`colors`);
+require(`dotenv`).config();
+
+const commandHandler = require(`./src/console/load-commands`);
+const wrong = require(`./src/console/wrong`);
+const empty = require(`./src/console/empty`);
+
+const availableCommands = Object.keys(commandHandler);
+
+//   Аргумент для  скрипта, undefined - если не задан
+const args = process.argv.slice(2);
+//  Получаем индекс команды среди возможных комманд
+const commandIndex = availableCommands.indexOf(args[0]);
+
+if (args[0]) {
+    if (commandIndex >= 0) {
+        const command = availableCommands[commandIndex];
+        // Запуск обработчика
+        commandHandler[command](args[1]);
+    } else {
+        wrong.execute(args[0]);
+        process.exit(1);
+    }
+} else {
+    empty.execute();
+}
