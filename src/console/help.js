@@ -1,10 +1,8 @@
-'use strict';
-
 const author = require(`./author`);
 const version = require(`./version`);
 const description = require(`./description`);
 const license = require(`./license`);
-const server = require(`../server`);
+const server = require(`../server/index`);
 
 module.exports = {
   name: `help`,

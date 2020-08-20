@@ -1,5 +1,3 @@
-'use strict';
-
 const packageInfo = require(`../../package`);
 
 module.exports = {

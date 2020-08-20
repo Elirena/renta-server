@@ -1,5 +1,3 @@
-'use strict';
-
 const packageInfo = require(`../../package`);
 
 const [majorVersion, minorVersion, patchVersion] = packageInfo.version.split(`.`);
